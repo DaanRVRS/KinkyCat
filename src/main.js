@@ -37,6 +37,7 @@ export const postsRef = await getDocs(collection(db, 'Posts'));
 //     timestamp: new Date().getDay() + '-' + new Date().getMonth() + '-' + new Date().getFullYear() + ' ' + new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds(),
 //   }
 // }
+import './assets/main.css'
 
 const app = createApp(App)
 
