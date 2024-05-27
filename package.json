@@ -9,10 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "firebase": "^10.12.0",
+=======
     "firebase": "^10.12.1",
     "firestore": "^1.1.6",
+>>>>>>> 329d754d2426dd3b54f6ca0b5366cae2f85fde48
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuefire": "^3.1.23"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
