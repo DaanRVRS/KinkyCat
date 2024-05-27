@@ -1,5 +1,5 @@
 <template> 
-    dikke bora
+    
 </template>
 
 <script>
