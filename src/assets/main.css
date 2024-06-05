@@ -11,9 +11,17 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.image{
+    margin-bottom: -10px;
+    img{
+        width:100%;
+        height:85vh;
+    }
+}
 header{
     height:100px;
-    width:100vw;
+    width:100%;
     background-color: #000000;
     display: flex;
     flex-direction: row;
@@ -79,4 +87,9 @@ header{
             }
         }
     }
+}
+footer{
+    width:100%;
+    height:100px;
+    background-color: #000000;
 }

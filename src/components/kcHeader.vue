@@ -1,4 +1,7 @@
 <template> 
+<div class="image">
+  <img src="/kat.jpg" alt="logo" />
+</div>
     <header>
       <div class="dropdown">
         <i class="fa-solid fa-bars"></i>

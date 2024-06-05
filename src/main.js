@@ -42,14 +42,15 @@ import './assets/main.css'
 const app = createApp(App)
 
 // make global vars
-app.config.globalProperties.window = window;
+app.config.globalProperties.window = window;  
 window.postsTable = postsRef.docs[0]._document.data.value.mapValue.fields;
 console.log(postsRef.docs[0]._document.data.value.mapValue.fields);
 
 
+
 app.use(router, VueFire)
 
-app.mount('#app')
+app.mount('#app')   
 
 
 export default postsRef;
