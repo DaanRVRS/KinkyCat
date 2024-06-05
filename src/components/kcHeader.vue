@@ -1,5 +1,6 @@
 <template> 
 <div class="image">
+  <img src="/KinkyCat_Logo_NoText.png" alt="logo" />
   <img src="/kat.jpg" alt="logo" />
 </div>
     <header>
