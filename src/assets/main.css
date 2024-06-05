@@ -57,15 +57,16 @@ header{
         }
     }
     .logo{
-        width:12%;
-        height:100%;
+        width:8%;
+        height:80%;
         display:flex;
         justify-content:center;
         align-items: center;
         img{
-            width:170px;
-            height:140px;
+            width:100%;
+            height:100%;
             margin-top:20px;
+            
         }
     }
     ul{
