@@ -7,6 +7,7 @@ a, p, h1, h2, h3, h4, h5, strong, i, li {
 body {
     background-color: red;
     overflow-x: hidden;
+    height: 1000px;
 }
 *{
     margin: 0;
@@ -14,21 +15,32 @@ body {
 }
 
 .image{
-    margin-bottom: -10px;
+    height: 85vh;
     img:first-of-type{
         width: 200px;
         height: 200px;
         position: absolute;
-        filter: brightness(5);
+        filter: brightness(10);
+        z-index: 1000;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
     img:last-of-type{
         width:100%;
         height: calc(100vh - 100px);
-        object-fit: cover;
+        filter: brightness(60%);
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
 }
 header{
-    height:100px;
+    height:15vh;
     width:100vw;
     background-color: #000000;
     display: flex;

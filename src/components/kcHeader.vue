@@ -1,7 +1,7 @@
 <template> 
 <div class="image">
   <img src="/KinkyCat_Logo_NoText.png" alt="logo" />
-  <img src="/kat.jpg" alt="logo" />
+  <img src="/borabillen.png" alt="logo" />
 </div>
     <header>
       <div class="dropdown">
