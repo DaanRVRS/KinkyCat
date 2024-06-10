@@ -7,13 +7,15 @@ a, p, h1, h2, h3, h4, h5, strong, i, li {
 body {
     background-color: red;
     overflow-x: hidden;
-    height: 1000px;
+    height: 2000px;
 }
 *{
     margin: 0;
     padding: 0;
 }
-
+.container{
+    height: 2000px;
+}
 .image{
     height: 85vh;
     img:first-of-type{
@@ -28,7 +30,7 @@ body {
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
-        
+
         &:hover{
             filter: brightness(40%);
             cursor: pointer;
@@ -47,11 +49,15 @@ body {
     }
 }
 header{
-    height:15vh;
+    height:110px;
     width:100vw;
     background-color: #000000;
     display: flex;
     flex-direction: row;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     .dropdown{
         width:8%;
         height:100%;
