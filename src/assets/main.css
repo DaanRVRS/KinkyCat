@@ -1,232 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 a, p, h1, h2, h3, h4, h5, strong, i, li {
-  font-family: "Reddit Mono", monospace;
-  font-weight: 700;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+}
+strong {
+    font-weight: 800 !important;
 }
 
 body {
     background: #202020;
     overflow-x: hidden;
-    height: 2000px;
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-nav{
-    width:230px;
-    height: 100vh;
-    background-color: #000000;
-    position: fixed;
-    z-index: 1010;
+
+@keyframes sidebar-slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sidebar-slide-out {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+header {
+    width: 100vw;
+    height: auto;
+    display: flex;
     flex-direction: column;
-    display: none;
-    
-    .upper-header-container{
-        width:100%;
-        height:50px;
+    align-items: start;
+    justify-content: start;
+    height: calc(100vh - 140px);
+
+    .header-image {
+        width: 100vw;
+        height: 1000px;
+        margin-bottom: -5px;
+
+        .logo {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+        }
+
+        .background-image {
+            width: inherit;
+            object-fit: cover;
+            filter: brightness(0.6);
+            height: calc(100vh - 140px);
+        }
+    }
+
+    .header-content {
+        width: 100vw;
+        height: 140px;
+        min-height: 140px;
+        background-color: black;
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        padding-left: 15px;
+        padding-right: 15px;
+        gap: 40px;
 
-        .searchbar{
-            width:75%;
-            height:100%;
+        .logo {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .dropdown {
             display: flex;
             align-items: center;
-
-            input{
-                width:83%;
-                height:25px;
-                margin-left:5px;
-                border: none;
-                border-radius: 7px;
-                padding-left:5px;
-            }
-            input:focus{
-                outline: none;
+            gap: 25px;
+            i {
+                color: white;
+                cursor: pointer;
             }
         }
-        .close-icon{
-            width:20%;
-            height:100%;
+
+        nav {
+            ul {
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+                li, a {
+                    font-size: 20px;
+                    color: white;
+                    list-style: none;
+                    text-decoration: none;
+                    transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
+
+                    &:hover {
+                        box-shadow: inset 150px 0 0 0 white;
+                        color: black;
+                    }
+                }
+            }
+        }
+
+        .user-container {
+            position: absolute;
+            right: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
 
-            i{
-                color:white;
-                transition: color 0.3s;
-            }
-            i:hover{
-                color: red;
+            i {
+                color: black;
                 cursor: pointer;
             }
         }
     }
-
-    ul{
-        width:100%;
-        height: auto;
-
-        li{
-            font-family: 'Reddit Mono', monospace;
-            color:white;
-            font-size: 18px;
-            margin-top:10px;
-        }
-    }
-}
-
-.container{
-    height: 5000px;
-}
-
-.image{
-    height: 85vh;
-    img:first-of-type{
-        width: 75px;
-        height: 75px;
-        margin: 25px;
-        position: absolute;
-        filter: brightness(10);
+    .sidebar {
+        display: none;
+        width: 300px;
+        height: 100vh;
+        position: fixed;
         z-index: 1000;
-        -webkit-user-drag: none;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        transition: .3s;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        background-color: black;
 
-        &:hover{
-            filter: brightness(40%);
-            cursor: pointer;
-            transition: .3s;
-        }
-    }
-    img:last-of-type{
-        width:100%;
-        height: calc(100vh - 100px);
-        filter: brightness(60%);
-        -webkit-user-drag: none;
-        user-select: none;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    }
-}
-header{
-    height:110px;
-    width:100vw;
-    background-color: #000000;
-    display: flex;
-    flex-direction: row;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+        .close-sidebar {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: white;
+            cursor: pointer;}
 
-    .dropdown{
-        width:8%;
-        height:100%;
-        display:flex;
-        justify-content:center;
-        align-items: center;
-        i{
-            color:white;
-            font-size:65px;
-        }
-        i:hover{
-            cursor: pointer;
-        }
-    }
-    .logo{
-        width:12%;
-        height:100%;
-        display:flex;
-        justify-content:center;
-        align-items: center;
-        
-        img{
-            width:100%;
-            height:100%;
-            margin-top:20px;
-            -webkit-user-drag: none;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    }
-    ul{
-        height:100%;
-        width:35%;
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-
-        li{
-            font-size: 20px;
-          
-            a{
-                color:white;
-                list-style:none;
-                text-decoration: none;
-            }
-        }
-    }
-    .user-container{
-        width:45%;
-        height:100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        .user{
-            background-color: white;
-            width:65px;
-            height:65px;
-            border-radius:50%;
+        ul {
             display: flex;
-            justify-content: center;
-            align-items: center;    
-            margin-right:20px;
-            i{
-                color:black;
-                font-size:45px;
+            flex-direction: column;
+            gap: 10px;
+            li{
+                margin-left: 15px;
+                color: white;
+                list-style: none;
             }
+        }
+
+        &.sidebar-slide-in {
+            animation: sidebar-slide-in 0.5s;
+        }
+        &.sidebar-slide-out {
+            animation: sidebar-slide-out 0.5s;
         }
     }
 }
-footer{
-    width:100%;
-    height:100px;
-    background-color: #000000;
-}
+
 
 .homepage {
+    margin-top: 160px;
+    width: 100vw;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    color: white;
+}
 
-    .container {
-        margin-top: 100px;
-        width: 1200px;
-        height: auto;
-        display: flex;
-        flex-direction: row;    
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        
-        .card {
-            width: 260px; 
-            height: 400px;
-            display: flex;
-            flex-direction: column;    
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-radius: 10px;
-        }
-    }
+footer {
+    height: 300px;
+    width: 100vw;
+    background-color: black;
 }

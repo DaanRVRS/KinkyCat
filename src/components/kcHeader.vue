@@ -1,58 +1,60 @@
 <template> 
-<nav>
-  <div class="upper-header-container">
-    <div class="searchbar">
-      <input type="text" placeholder="Zoeken" />
+  <header>
+    <div class="header-image">
+      <img src="/KinkyCat_Logo_NoText.png" alt="logo" class="logo" />
+      <img src="/header_image.png" alt="logo" class="background-image" />
     </div>
-    <div class="close-icon">
-      <i class="fa-solid fa-times fa-3x" v-on:click="toggleMenuClose()"></i>
-    </div>
-  </div>
-  <ul>
-    <li>natte poezen</li>
-    <li>bubblegum pink poezen</li>
-    <li>schattige poezen</li>
-    <li>harige poezen</li>
-    <li>naakte poezen</li>
-    <li>BBC</li>
-    <li>Rode poezen</li>
-    <li>petite poezen</li>
-    <li>Eindhovense poezen</li>
-    <li>Catiestyle</li>
-    <li>rawr</li>
-    <li>Triple poes</li>
-    <li>Gepiercste poes</li>
-    <li>Moslim poes</li>
-    <li>Kitten poes</li>
-    <li>Tompouce</li>
-    <li>Jonge poezen</li>
-    <li>StepCat</li>
-    <li>duo poes</li>
-    <li>Turkse poes</li>
- </ul>
-</nav>
-<div class="image">
-  <img src="/KinkyCat_Logo_NoText.png" alt="logo" />
-  <img src="/borabillen.png" alt="logo" />
-</div>
-    <header>
+
+    <div class="header-content">
+      <RouterLink to="/">
+        <img src="/KinkyCat_Logo.png" alt="logo" class="logo" />
+      </RouterLink>
       <div class="dropdown">
-        <i class="fa-solid fa-bars" v-on:click="toggleMenu()"></i>
+        <i class="fa-solid fa-bars fa-3x" @click="toggleSidebar()"></i>
+        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
       </div>
-      <div class="logo">
-        <img src="/KinkyCat_Logo.png" alt="logo" />
-      </div>
-      <ul>
-        <li><a href="kcTrending.vue">Trending</a></li>
-        <li><a href="kcAboutUs.vue">Over Ons</a></li>
-        <li><a href="kcPrivacy.vue">Privacy Policy</a></li>
-      </ul>
+      <nav>
+        <ul>
+          <li><RouterLink to="/trending">Trending</RouterLink></li>
+          <li><RouterLink to="/about-us">Over Ons</RouterLink></li>
+          <li><RouterLink to="/privacy-policy">Privacy Policy</RouterLink></li>
+        </ul>
+      </nav>
       <div class="user-container">
-        <div class="user  ">
-          <i class="fa-solid fa-user"></i>
-        </div>
+        <RouterLink to="/login">
+          <i class="fa-solid fa-user fa-2x"></i>
+        </RouterLink>
       </div>
-    </header>
+    </div>
+    <div class="sidebar">
+      <i class="fa-solid fa-times fa-2x close-sidebar" @click="toggleSidebar()"></i>
+      <nav>
+        <ul>
+          <li>natte poezen</li>
+          <li>bubblegum pink poezen</li>
+          <li>schattige poezen</li>
+          <li>harige poezen</li>
+          <li>naakte poezen</li>
+          <li>BBC</li>
+          <li>Rode poezen</li>
+          <li>petite poezen</li>
+          <li>Eindhovense poezen</li>
+          <li>Catiestyle</li>
+          <li>rawr</li>
+          <li>Triple poes</li>
+          <li>Gepiercste poes</li>
+          <li>Moslim poes</li>
+          <li>Kitten poes</li>
+          <li>Tompouce</li>
+          <li>Jonge poezen</li>
+          <li>StepCat</li>
+          <li>duo poes</li>
+          <li>Turkse poes</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
 </template>
 
 <script>
@@ -61,17 +63,30 @@ import { doc } from 'firebase/firestore';
 export default {
   data() {
     return {
+      sidebarToggled: false,
     };
   },
   methods: {
-    toggleMenu: function () {
-      console.log('toggleMenu');
-      document.querySelector('nav').style.display = 'flex'; 
+    toggleSidebar: async function () {
+      function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+      }
+
+      if (this.sidebarToggled === true) {
+        this.sidebarToggled = false;
+        document.querySelector('.sidebar').classList.add('sidebar-slide-out');
+        await delay(500);
+        document.querySelector('.sidebar').classList.remove('sidebar-slide-out');
+        document.querySelector('.sidebar').style.display = 'none';
+      } else {
+        this.sidebarToggled = true;
+        document.querySelector('.sidebar').style.display = 'flex';
+        document.querySelector('.sidebar').classList.add('sidebar-slide-in');
+        await delay(500);
+        document.querySelector('.sidebar').classList.remove('sidebar-slide-in');
+
+      }
     },
-    toggleMenuClose: function () {
-      console.log('toggleMenuClose');
-      document.querySelector('nav').style.display = 'none'; 
-    }
   },
   created() {
 

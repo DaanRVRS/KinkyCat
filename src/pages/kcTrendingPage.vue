@@ -1,10 +1,11 @@
 <template> 
-    <footer>
-      yo
-    </footer>
+  <div class="homepage">
+    you are on the trending page
+  </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -13,7 +14,6 @@ export default {
   methods: {
   },
   created() {
-
   }
 };
 </script>
