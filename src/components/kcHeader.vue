@@ -1,26 +1,28 @@
 <template> 
-<div class="image">
-  <img src="/KinkyCat_Logo_NoText.png" alt="logo" />
-  <img src="/borabillen.png" alt="logo" />
-</div>
-    <header>
+  <header>
+    <div class="header-image">
+      <img src="/KinkyCat_Logo_NoText.png" alt="logo" class="logo" />
+      <img src="/header_image.png" alt="logo" class="background-image" />
+    </div>
+
+    <div class="header-content">
+      <img src="/KinkyCat_Logo.png" alt="logo" class="logo" />
       <div class="dropdown">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars fa-3x"></i>
+        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
       </div>
-      <div class="logo">
-        <img src="/KinkyCat_Logo.png" alt="logo" />
-      </div>
-      <ul>
-        <li><a href="#">Trending</a></li>
-        <li><a href="#">Over Ons</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
+      <nav>
+        <ul>
+          <li><a href="#">Trending</a></li>
+          <li><a href="#">Over Ons</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </nav>
       <div class="user-container">
-        <div class="user  ">
-          <i class="fa-solid fa-user"></i>
-        </div>
+        <i class="fa-solid fa-user fa-2x"></i>
       </div>
-    </header>
+    </div>
+  </header>
 </template>
 
 <script>

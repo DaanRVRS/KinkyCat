@@ -1,8 +1,6 @@
 <template> 
     <footer>
-      <div>
-        
-      </div>
+      yo
     </footer>
 </template>
 

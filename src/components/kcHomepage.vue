@@ -1,44 +1,21 @@
 <template> 
   <div class="homepage">
     <div class="container">
-      <div class="card">
+      <div class="card" v-for="post in posts" :key="post.id">
         <strong>
-          {{ posts[0].postTitle.stringValue }}
+          {{ post.postTitle ? post.postTitle : 'No posts yet' }}
         </strong>
-        <p>
-          {{ posts[0].postText.stringValue }}
-        </p>
-        <i>
-          {{ posts[0].writtenBy.stringValue }}
-        </i>
-      </div>
-      <div class="card">
-        <strong>
-          {{ posts[1].postTitle.stringValue }}
-        </strong>
-        <p>
-          {{ posts[1].postText.stringValue }}
-        </p>
-        <i>
-          {{ posts[1].writtenBy.stringValue }}
-        </i>
-      </div>
-      <div class="card">
-        <strong>
-          {{ posts[2].postTitle.stringValue }}
-        </strong>
-        <p>
-          {{ posts[2].postText.stringValue }}
-        </p>
-        <i>
-          {{ posts[2].writtenBy.stringValue }}
-        </i>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { useCollection } from 'vuefire'
+import { collection } from 'firebase/firestore'
+import { useFirestore } from 'vuefire'
+import { db } from '../firebase'
+
 export default {
   data() {
     return {
@@ -48,10 +25,9 @@ export default {
   methods: {
   },
   created() {
-    for (let i = 0; i < window.postsTable.size; i++) {
-      this.posts.push(window.postsTable.docs[i]._document.data.value.mapValue.fields);
-    }
-    console.log(this.posts[0].id.integerValue);
+    console.log(collection(db, 'Posts'));
+    this.posts = useCollection(collection(db, 'Posts'))
+    console.log(this.posts)
   }
 };
 </script>
