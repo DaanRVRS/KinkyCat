@@ -3,8 +3,8 @@
     <div class="container">
       <h2><strong>Latest posts</strong></h2>
       <div class="posts-container">
-        <div class="card" v-for="post in posts" :key="post.id">
-          <div>
+        <div class="card" v-for="(post, index) in previewablePosts" :key="post.id">
+          <div >
             <strong>
               {{ post.title ? post.title : 'No posts yet' }}
             </strong>
@@ -34,13 +34,15 @@ import { db } from '../firebase'
 export default {
   data() {
     return {
-      posts: []
+      posts: [],
+      previewablePosts: [],
     };
   },
   methods: {
   },
-  created() {
-    this.posts = useCollection(collection(db, 'Posts'))
+  async created() {
+    this.posts = await useCollection(collection(db, 'Posts'))
+    this.previewablePosts = this.posts.slice(0, 5)
   }
 };
 </script>

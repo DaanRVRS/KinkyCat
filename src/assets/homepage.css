@@ -14,6 +14,7 @@
         align-items: center;
         justify-content: center;
         gap: 100px;
+        flex-wrap: wrap;
 
         .card {
             width: 300px;
@@ -26,6 +27,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            flex-basis: 21%;
 
             :nth-child(1) {
                 height: 23.3%;

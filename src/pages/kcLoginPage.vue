@@ -37,7 +37,7 @@
       <input type="text" placeholder="email" />
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
-      <button>Register</button>
+      <button @click="registerUser()">Register</button>
     </div>
   </div>
 </template>
@@ -79,6 +79,8 @@ export default {
         password: password,
         posts: 0,
       });
+
+      window.location.href = '/';
 
     },
   },
