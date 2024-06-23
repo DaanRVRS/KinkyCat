@@ -25,6 +25,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
 
             :nth-child(1) {
                 height: 23.3%;

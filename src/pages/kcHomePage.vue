@@ -6,17 +6,17 @@
         <div class="card" v-for="post in posts" :key="post.id">
           <div>
             <strong>
-              {{ post.postTitle ? post.postTitle : 'No posts yet' }}
+              {{ post.title ? post.title : 'No posts yet' }}
             </strong>
           </div>
           <div>
             <p>
-              {{ post.postText ? post.postText : 'No content yet' }}
+              {{ post.text ? post.text : 'No content yet' }}
             </p>
           </div>
           <div>            
             <i>
-              {{ post.writtenBy ? "Written by: " + post.writtenBy : 'No author' }}
+              {{ post.author ? "Written by: " + post.author : 'No author' }}
             </i>
           </div>
         </div>
