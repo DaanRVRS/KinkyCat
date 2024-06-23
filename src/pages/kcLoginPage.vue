@@ -58,7 +58,7 @@ export default {
         const vr = ((parseInt(d.substr(16, 1), 16) & 0x3) | 0x8).toString(16);
         return `${d.substr(0, 8)}-${d.substr(8, 4)}-4${d.substr(13, 3)}-${vr}${d.substr(17, 3)}-${d.substr(20, 12)}`;
       };
-      const uuid = uuid41();
+      const uuid = await uuid41();
 
       this.users = await addDoc(collection(db, "users"),{
         created: new Date(),
