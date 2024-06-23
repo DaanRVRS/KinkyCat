@@ -174,7 +174,6 @@ header {
 .homepage {
     margin-top: 160px;
     width: 100vw;
-    height: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
