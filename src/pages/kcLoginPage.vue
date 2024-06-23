@@ -3,7 +3,7 @@
     <RouterLink to="/">
       <strong class="back-to-home">< Back to homepage</strong>
     </RouterLink>
-    <img src="/kat.jpg">
+    <img src="/header_image.png">
     <div class="login-card">
       <RouterLink to="/">
         <img src="/KinkyCat_Logo.png">
@@ -21,7 +21,7 @@
         <div class="line"></div>
       </div>
       <div class="register">
-      <button @click=" state = true">Create account</button>
+      <button @click=" state = true">Creëer account</button>
       </div>
     </div>
   </div>
@@ -29,15 +29,27 @@
     <RouterLink to="/">
       <strong class="back-to-home">< Back to homepage</strong>
     </RouterLink>
+    <img src="/header_image.png">
     <div class="register-card">
       <RouterLink to="/">
         <img src="/KinkyCat_Logo.png">
       </RouterLink>
-      <h1>Register</h1>
+      <h1>Kinkycat</h1>
+      <h2>Registreren</h2>
       <input type="text" placeholder="email" />
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
-      <button>Register</button>
+      <button @click="registerUser()">Creëer account</button>
+      <div class="or">
+        <div class="line"></div>
+        <p>
+          or
+        </p>
+        <div class="line"></div>
+      </div>
+      <div class="login">
+      <button @click=" state = false">Login</button>
+      </div>
     </div>
   </div>
 </template>
@@ -79,6 +91,8 @@ export default {
         password: password,
         posts: 0,
       });
+
+      window.location.href = '/';
 
     },
   },

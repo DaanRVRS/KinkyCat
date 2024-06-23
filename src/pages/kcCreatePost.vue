@@ -45,6 +45,8 @@
           author: author,
           uuid: uuid,
         });
+
+        window.location.href = '/';
   
       },
     },
