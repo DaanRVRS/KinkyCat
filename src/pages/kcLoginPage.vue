@@ -3,15 +3,26 @@
     <RouterLink to="/">
       <strong class="back-to-home">< Back to homepage</strong>
     </RouterLink>
+    <img src="/kat.jpg">
     <div class="login-card">
       <RouterLink to="/">
         <img src="/KinkyCat_Logo.png">
       </RouterLink>
-      <h1>Login</h1>
+      <h1>Kinkycat</h1>
+      <h2>Login</h2>
       <input type="text" placeholder="email" />
       <input type="password" placeholder="password" />
       <button>Login</button>
-      <p class="switch-state">Don't have an account? <a href="#" @click="state = true">Register</a></p>
+      <div class="or">
+        <div class="line"></div>
+        <p>
+          or
+        </p>
+        <div class="line"></div>
+      </div>
+      <div class="register">
+      <button @click=" state = true">Create account</button>
+      </div>
     </div>
   </div>
   <div class="registerpage" v-else>
@@ -27,7 +38,6 @@
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
       <button>Register</button>
-      <p class="switch-state">Already have an account? <a href="#" @click="state = false">Login</a></p>
     </div>
   </div>
 </template>
