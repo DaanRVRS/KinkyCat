@@ -6,16 +6,18 @@
     </div>
 
     <div class="header-content">
-      <img src="/KinkyCat_Logo.png" alt="logo" class="logo" />
+      <RouterLink to="/">
+        <img src="/KinkyCat_Logo.png" alt="logo" class="logo" />
+      </RouterLink>
       <div class="dropdown">
         <i class="fa-solid fa-bars fa-3x"></i>
         <i class="fa-solid fa-magnifying-glass fa-2x"></i>
       </div>
       <nav>
         <ul>
-          <li><a href="#">Trending</a></li>
-          <li><a href="#">Over Ons</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><RouterLink to="/trending">Trending</RouterLink></li>
+          <li><RouterLink to="/about-us">Over Ons</RouterLink></li>
+          <li><RouterLink to="/privacy-policy">Privacy Policy</RouterLink></li>
         </ul>
       </nav>
       <div class="user-container">
