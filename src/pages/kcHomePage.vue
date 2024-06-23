@@ -18,6 +18,12 @@
             <i>
               {{ post.author ? "Written by: " + post.author : 'No author' }}
             </i>
+            <i style="font-weight: 300;">
+              {{ post.created ? new Date(post.created.seconds * 1000).toLocaleDateString('em-EN', {weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',}) : 'No date' }}
+            </i>
           </div>
         </div>
       </div>
