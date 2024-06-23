@@ -1,11 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import kcHeader from './components/kcHeader.vue'
-import kcFooter from './components/kcFooter.vue'
+import { RouterView } from 'vue-router'
+import KcFooter from './components/kcFooter.vue'
+import KcHeader from './components/kcHeader.vue'
 </script>
 
 <template>
-  <kcHeader/>
+  <KcHeader v-if="$route.meta.hideHeader === false" />
   <RouterView/>
-  <kcFooter />
+  <KcFooter v-if="$route.meta.hideFooter === false" />
 </template>

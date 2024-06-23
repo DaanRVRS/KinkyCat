@@ -21,7 +21,9 @@
         </ul>
       </nav>
       <div class="user-container">
-        <i class="fa-solid fa-user fa-2x"></i>
+        <RouterLink to="/login">
+          <i class="fa-solid fa-user fa-2x"></i>
+        </RouterLink>
       </div>
     </div>
   </header>

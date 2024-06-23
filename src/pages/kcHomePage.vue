@@ -29,7 +29,6 @@
 import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
 import { collection } from 'firebase/firestore'
-import { useFirestore } from 'vuefire'
 import { db } from '../firebase'
 
 export default {
@@ -41,9 +40,7 @@ export default {
   methods: {
   },
   created() {
-    console.log(collection(db, 'Posts'));
     this.posts = useCollection(collection(db, 'Posts'))
-    console.log(this.posts)
   }
 };
 </script>
