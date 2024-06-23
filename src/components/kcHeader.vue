@@ -58,8 +58,6 @@
 </template>
 
 <script>
-import { doc } from 'firebase/firestore';
-
 export default {
   data() {
     return {
