@@ -51,6 +51,11 @@ export default {
   },
   async created() {
     this.posts = await useCollection(collection(db, 'Posts'))
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    await delay(500);
     this.previewablePosts = this.posts.slice(0, 5)
   }
 };

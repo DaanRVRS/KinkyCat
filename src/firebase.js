@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 // ... other firebase imports
 
-export const firebaseApp = initializeApp({
+export const firebaseApp = await initializeApp({
     apiKey: "AIzaSyCgObuuUVKgytm8ozKAdV_HXmySJjE1YA8",
     authDomain: "kinkycat-216e8.firebaseapp.com",
     projectId: "kinkycat-216e8",
@@ -14,10 +14,10 @@ export const firebaseApp = initializeApp({
   })
 
 // used for the firestore refs
-export const db = getFirestore(firebaseApp);
+export const db = await getFirestore(firebaseApp);
 
 export const auth = getAuth(firebaseApp);
 
 // here we can export reusable database references
-export const postsRef = collection(db, 'Posts')
-export const usersRef = collection(db, 'users')
+export const postsRef = await collection(db, 'Posts')
+export const usersRef = await collection(db, 'users')
