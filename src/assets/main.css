@@ -134,7 +134,7 @@ header {
     }
     .sidebar {
         display: none;
-        width: 250px;
+        width: 280px;
         height: 100vh;
         position: fixed;
         z-index: 1000;
@@ -162,27 +162,27 @@ header {
             flex-direction: column;
             gap: 10px;
             list-style: none;
-        }
-        
-        ul li {
-            width: 100%;
-        }
-        
-        ul li a {
-            display: block;
-            width: 100%;
-            margin-left: 15px;
-            color: white;
-            text-decoration: none;
-            transition: 0.5s;
-            box-sizing: border-box;
-        }
-        
-        ul li a:hover {
-            margin-left: 35px;
-            color: rgb(149, 101, 194);
-            font-size: 20px;
-            transition: 0.5s;
+
+            li{
+                width: 100%;
+
+                a{
+                    display: block;
+                    width: 100%;
+                    margin-left: 15px;
+                    color: white;
+                    text-decoration: none;
+                    transition: 0.5s;
+                    box-sizing: border-box;
+
+                    &:hover {
+                        margin-left: 35px;
+                        color: rgb(149, 101, 194);
+                        font-size: 20px;
+                        transition: 0.5s;
+                    }
+                }
+            }
         }
 
         &.sidebar-slide-in {
