@@ -36,9 +36,9 @@
       </RouterLink>
       <h1>Kinkycat</h1>
       <h2>Registreren</h2>
-      <input type="text" placeholder="email" />
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
+      <input type="text" id="reg-email" placeholder="email" />
+      <input type="text" id="reg-name" placeholder="username" />
+      <input type="password" id="reg-pass" placeholder="password" />
       <button @click="registerUser()">Creëer account</button>
       <div class="or">
         <div class="line"></div>
