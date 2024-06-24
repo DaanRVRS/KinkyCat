@@ -3,6 +3,7 @@ import homePage from '../pages/kcHomePage.vue'
 import trendingPage from '../pages/kcTrendingPage.vue'
 import loginPage from '../pages/kcLoginPage.vue'
 import createPostPage from '../pages/kcCreatePost.vue'
+import editPostPage from '../pages/kcEditPost.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,15 @@ const router = createRouter({
         hideFooter: true,
       }
     },
+    {
+      path: '/edit-post',
+      name: 'editPost',
+      component: editPostPage,
+      meta: {
+        hideHeader: true,
+        hideFooter: true,
+      },
+    }
   ]
 })
 

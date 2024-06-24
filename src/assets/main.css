@@ -100,7 +100,7 @@ header {
                 display: flex;
                 flex-direction: row;
                 gap: 25px;
-                li, a {
+                li, a{
                     font-size: 20px;
                     color: white;
                     list-style: none;
@@ -134,7 +134,7 @@ header {
     }
     .sidebar {
         display: none;
-        width: 300px;
+        width: 250px;
         height: 100vh;
         position: fixed;
         z-index: 1000;
@@ -148,17 +148,41 @@ header {
             right: 15px;
             top: 15px;
             color: white;
-            cursor: pointer;}
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                color: rgb(164, 61, 61);
+                transition: .3s;
+            }
+        }
 
         ul {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            li{
-                margin-left: 15px;
-                color: white;
-                list-style: none;
-            }
+            list-style: none;
+        }
+        
+        ul li {
+            width: 100%;
+        }
+        
+        ul li a {
+            display: block;
+            width: 100%;
+            margin-left: 15px;
+            color: white;
+            text-decoration: none;
+            transition: 0.5s;
+            box-sizing: border-box;
+        }
+        
+        ul li a:hover {
+            margin-left: 35px;
+            color: rgb(149, 101, 194);
+            font-size: 20px;
+            transition: 0.5s;
         }
 
         &.sidebar-slide-in {
