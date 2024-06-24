@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 import { getFirestore, collection } from 'firebase/firestore'
 // ... other firebase imports
 
@@ -10,13 +10,15 @@ export const firebaseApp = await initializeApp({
     storageBucket: "kinkycat-216e8.appspot.com",
     messagingSenderId: "949576085738",
     appId: "1:949576085738:web:bcf18586cb4c9c75902793",
-    measurementId: "G-9THQPTQRQE"
+    measurementId: "G-9THQPTQRQE" 
   })
 
 // used for the firestore refs
 export const db = await getFirestore(firebaseApp);
 
 export const auth = getAuth(firebaseApp);
+export const provider = new GoogleAuthProvider();
+
 
 // here we can export reusable database references
 export const postsRef = await collection(db, 'Posts')
