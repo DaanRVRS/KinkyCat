@@ -51,7 +51,7 @@
       },
     },
     created() {
-      this.posts = useCollection(collection(db, 'Posts'))
+      // this.posts = useCollection(collection(db, 'Posts'))
     }
   };
   </script>
