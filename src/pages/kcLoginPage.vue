@@ -16,12 +16,13 @@
       <div class="or">
         <div class="line"></div>
         <p>
-          or
+          of
         </p>
         <div class="line"></div>
       </div>
       <div class="register">
       <button @click=" state = true">Creëer account</button>
+      <button id="googlebutton"  @click="signInWithGoogle"><img src="/google.png">Ga verder met Google </button>  
       </div>
     </div>
   </div>
@@ -43,12 +44,13 @@
       <div class="or">
         <div class="line"></div>
         <p>
-          or
+          of
         </p>
         <div class="line"></div>
       </div>
       <div class="login">
       <button @click=" state = false">Login</button>
+      <button id="googlebutton"  @click="signInWithGoogle"><img src="/google.png">Ga verder met Google </button>
       </div>
     </div>
   </div>
@@ -59,7 +61,8 @@ import '../assets/loginpage.css'
 import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
 import { collection, addDoc } from 'firebase/firestore'
-import { db } from '../firebase'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { db, auth,} from '../firebase'
 
 export default {
   data() {
@@ -91,8 +94,17 @@ export default {
         password: password,
         posts: 0,
       });
-
     },
+    signInWithGoogle: async function(){
+      try{
+        const provider = new GoogleAuthProvider();
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log(user);
+      }catch (error){
+        console.log(error.message);
+      }
+    }
   },
   created() {
     this.users = useCollection(collection(db, 'users'))
