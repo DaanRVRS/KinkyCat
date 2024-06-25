@@ -4,6 +4,12 @@
         <input type="text" placeholder="Title" id="post-title">
         <textarea placeholder="post content" id="post-text"></textarea>
         <input type="file" id="post-image">
+        <select id="exampleSelect" name="exampleSelect" v-model="category">
+          <option value="any">Any</option>
+          <option value="BBC">BBC</option>
+          <option value="wet_pussy">Wet pussy</option>
+          <option value="bubblegum_pink">Bubblegum pink</option>
+      </select>
         <input type="text" placeholder="username" id="post-author">
         <button @click="createPost()">Post</button>
     </div>
@@ -12,7 +18,6 @@
   <script>
   import '../assets/createpost.css'
   import '../assets/homepage.css'
-  import { useCollection } from 'vuefire'
   import { collection, addDoc } from 'firebase/firestore'
   import { db } from '../firebase'
   
@@ -20,15 +25,17 @@
     data() {
       return {
         posts: null,
+        category: 'any',
       };
     },
     methods: {
         createPost: async function() {
         let title = document.querySelector('#post-title').value;
         let text = document.querySelector('#post-text').value;
-        let img = document.querySelector('#post-image').value;
+        // let img = document.querySelector('#post-image').value;
         let author = document.querySelector('#post-author').value;
-  
+        let category = this.category;
+
         const uuid41 = () => {
           let d = '';
           while (d.length < 32) d += Math.random().toString(16).substr(2);
@@ -44,6 +51,7 @@
           img: null,
           author: author,
           uuid: uuid,
+          category: category,
         });
 
         window.location.href = '/';

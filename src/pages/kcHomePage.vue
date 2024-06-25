@@ -2,7 +2,7 @@
   <div class="homepage">
     <div class="container">
       <h2><strong>Latest posts</strong></h2>
-      <div class="posts-container">
+      <div class="posts-container" v-if="previewablePosts !== undefined && previewablePosts.length >= 3">
         <div class="card" v-for="(post, index) in previewablePosts" :key="post.id">
           <div >
             <strong>
@@ -27,9 +27,25 @@
           </div>
         </div>
       </div>
+      <div v-else>
+        Loading...
+      </div>
     </div>
-    <div class="content">
-      
+
+    <div class="horizontal-line-container">
+      <div class="horizontal-line"></div>
+    </div>
+
+    <div class="post-now-container">
+      <div class="post-now-text">
+        <strong>Want to post something?</strong>
+        <p>Click the button and start your <span>Kinky</span> adventure!</p>
+      </div>
+      <div class="cta-button-container">
+        <RouterLink to="/new-post">
+          <button class="cta-button"><p>Post now!</p></button>
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
@@ -44,7 +60,7 @@ export default {
   data() {
     return {
       posts: [],
-      previewablePosts: [],
+      previewablePosts: undefined,
     };
   },
   methods: {
@@ -55,8 +71,9 @@ export default {
         return new Promise(resolve => setTimeout(resolve, time));
     }
 
-    await delay(500);
+    await delay(1000);
     this.previewablePosts = this.posts.slice(0, 5)
+    console.log(this.previewablePosts)
   }
 };
 </script>
