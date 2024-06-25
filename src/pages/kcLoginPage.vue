@@ -102,6 +102,8 @@ export default {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         console.log(user);
+        this.user = user; 
+        this.$router.push('/');
       }catch (error){
         console.log(error.message);
       }
