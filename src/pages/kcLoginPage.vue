@@ -40,7 +40,7 @@
       <input type="text" placeholder="email" />
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
-      <button @click="registerUser()">Creëer account</button>
+      <button>Creëer account</button>
       <div class="or">
         <div class="line"></div>
         <p>

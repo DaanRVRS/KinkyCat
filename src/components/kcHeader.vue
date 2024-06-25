@@ -30,26 +30,26 @@
       <i class="fa-solid fa-times fa-2x close-sidebar" @click="toggleSidebar()"></i>
       <nav>
         <ul>
-          <li>natte poezen</li>
-          <li>bubblegum pink poezen</li>
-          <li>schattige poezen</li>
-          <li>harige poezen</li>
-          <li>naakte poezen</li>
-          <li>BBC</li>
-          <li>Rode poezen</li>
-          <li>petite poezen</li>
-          <li>Eindhovense poezen</li>
-          <li>Catiestyle</li>
-          <li>rawr</li>
-          <li>Triple poes</li>
-          <li>Gepiercste poes</li>
-          <li>Moslim poes</li>
-          <li>Kitten poes</li>
-          <li>Tompouce</li>
-          <li>Jonge poezen</li>
-          <li>StepCat</li>
-          <li>duo poes</li>
-          <li>Turkse poes</li>
+          <li><a href="">Natte poezen</a></li>
+          <li><a href="">Bubblegum pink poezen</a></li>
+          <li><a href="">Schattige poezen</a></li>
+          <li><a href="">Harige poezen</a></li>
+          <li><a href="">Naakte poezen</a></li>
+          <li><a href="">BBC</a></li>
+          <li><a href="">Rode poezen</a></li>
+          <li><a href="">Petite poezen</a></li>
+          <li><a href="">Eindhovense poezen</a></li>
+          <li><a href="">Catiestyle</a></li>
+          <li><a href="">Rawr</a></li>
+          <li><a href="">Triple poes</a></li>
+          <li><a href="">Gepiercste poes</a></li>
+          <li><a href="">Moslim poes</a></li>
+          <li><a href="">Kitten poes</a></li>
+          <li><a href="">Tompouce</a></li>
+          <li><a href="">Jonge poezen</a></li>
+          <li><a href="">StepCat</a></li>
+          <li><a href="">Duo poes</a></li>
+          <li><a href="">Turkse poes</a></li>
         </ul>
       </nav>
     </div>

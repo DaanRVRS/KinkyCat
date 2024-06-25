@@ -18,6 +18,12 @@
             <i>
               {{ post.author ? "Written by: " + post.author : 'No author' }}
             </i>
+            <i style="font-weight: 300;">
+              {{ post.created ? new Date(post.created.seconds * 1000).toLocaleDateString('em-EN', {weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',}) : 'No date' }}
+            </i>
           </div>
         </div>
       </div>
@@ -45,6 +51,11 @@ export default {
   },
   async created() {
     this.posts = await useCollection(collection(db, 'Posts'))
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    await delay(500);
     this.previewablePosts = this.posts.slice(0, 5)
   }
 };
