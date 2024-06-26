@@ -28,7 +28,7 @@
         </div>
       </div>
       <div v-else>
-        Loading...
+        <kcLoadingSpinner />
       </div>
     </div>
 
@@ -55,8 +55,12 @@ import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
 import { collection } from 'firebase/firestore'
 import { db } from '../firebase'
+import kcLoadingSpinner from '../components/kcLoadingSpinner.vue'
 
 export default {
+  components: {
+    kcLoadingSpinner: kcLoadingSpinner,
+  },
   data() {
     return {
       posts: [],

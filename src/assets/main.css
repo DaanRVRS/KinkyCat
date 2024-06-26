@@ -211,3 +211,20 @@ footer {
     width: 100vw;
     background-color: black;
 }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spin {
+    animation: spin 1.2s linear infinite;
+}
+
+#spinner {
+    color: thistle;
+}

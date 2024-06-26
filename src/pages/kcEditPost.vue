@@ -2,10 +2,16 @@
     <div v-if="post !== null">
         <input type="text" placeholder="titel" id="postTitle">
         <textarea placeholder="text" id="postText"></textarea>
+        <select id="exampleSelect" name="exampleSelect" v-model="category">
+            <option value="any">Any</option>
+            <option value="bbc">BBC</option>
+            <option value="wet_pussy">Wet pussy</option>
+            <option value="bubblegum_pink">Bubblegum pink</option>
+        </select>
         <button @click="updatePost()">UPDATE!</button>
     </div>
-    <div v-else class="loading-text">
-        loading...
+    <div v-else>
+        <kcLoadingSpinner />
     </div>
 </template>
 
@@ -15,26 +21,21 @@ import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
 import { collection, getFirestore, query, where, getDocs, updateDoc} from 'firebase/firestore'
 import { db } from '../firebase'
+import kcLoadingSpinner from '../components/kcLoadingSpinner.vue'
 
 export default {
+    components: {
+        kcLoadingSpinner: kcLoadingSpinner,
+    },
     data() {
         return {
         post: null,
         uuid: null,
+        category: 'any',
         };
     },
     methods: {
         updatePost: async function () {
-            // collection(db, "Posts").where("uuid", "==", this.uuid).get().then((querySnapshot) => {
-            //     querySnapshot.forEach((doc) => {
-            //         let postRef = doc.ref;
-            //         postRef.update({
-            //             title: title,
-            //             text: text
-            //         });
-            //     });
-            // });
-
             const db = getFirestore();
 
             // Functie om een document te updaten
@@ -57,9 +58,15 @@ export default {
                 // Update het document
                 await updateDoc(postRef, {
                     title: title,
-                    text: text
+                    text: text,
+                    category: this.category
                 });
             });
+
+            function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+            }
+            await delay(400);
 
             window.location.href = '/';
 
@@ -81,13 +88,14 @@ export default {
                 }
             }
 
-            console.log(this.post);
+            // console.log(this.post);
         },
     },
     async created() {
         await this.getData();
         document.querySelector('#postTitle').value = this.post.title;
         document.querySelector('#postText').value = this.post.text;
+        this.category = this.post.category;
     }
 };
 </script>
