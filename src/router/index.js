@@ -4,6 +4,7 @@ import trendingPage from '../pages/kcTrendingPage.vue'
 import loginPage from '../pages/kcLoginPage.vue'
 import createPostPage from '../pages/kcCreatePost.vue'
 import editPostPage from '../pages/kcEditPost.vue'
+import categoryPage from '../pages/kcCategoryPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,15 @@ const router = createRouter({
       meta: {
         hideHeader: true,
         hideFooter: true,
+      }
+    },
+    {
+      path: '/category/:category',
+      name: 'categoryPage',
+      component: categoryPage,
+      meta: {
+        hideHeader: false,
+        hideFooter: false,
       }
     },
   ]
