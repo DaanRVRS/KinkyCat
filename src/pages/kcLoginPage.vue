@@ -37,10 +37,10 @@
       </RouterLink>
       <h1>Kinkycat</h1>
       <h2>Registreren</h2>
-      <input type="text" id="reg-email" placeholder="email" />
-      <input type="text" id="reg-name" placeholder="username" />
-      <input type="password" id="reg-pass" placeholder="password" />
-      <button @click="registerUser()">Creëer account</button>
+      <input type="text" placeholder="email" />
+      <input type="text" placeholder="username" />
+      <input type="password" placeholder="password" />
+      <button>Creëer account</button>
       <div class="or">
         <div class="line"></div>
         <p>
@@ -95,8 +95,6 @@ export default {
         posts: 0,
       });
 
-      window.location.href = '/';
-
     },
     signInWithGoogle: async function(){
       try{
@@ -104,6 +102,8 @@ export default {
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
         console.log(user);
+        this.user = user; 
+        this.$router.push('/');
       }catch (error){
         console.log(error.message);
       }

@@ -23,7 +23,7 @@
       </nav>
       <div class="user-container">
         <RouterLink to="/login">
-          <i class="fa-solid fa-user fa-2x"></i>
+          <i class="fa-solid fa-user fa-3x"></i>
         </RouterLink>
       </div>
     </div>

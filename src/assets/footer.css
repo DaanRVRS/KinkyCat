@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding:0;
+}
+footer{
+    width: 100vw;
+    height:60px;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        position: absolute;
+        left:0;
+        margin-left:10px;
+        width:70px;
+    }
+    .copyright{
+        position: absolute;
+        right:0;
+        margin-right:10px;
+        color:white;
+        font-size:20px;
+    }
+    .info{
+        width:25%;
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        a{
+            font-size: 20px;
+            color: white;
+        }
+        a:hover{
+            cursor: pointer;
+            color:aliceblue;
+        }
+    }
+}
