@@ -57,7 +57,7 @@
 <script>
 import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
-import { collection, deleteDoc, doc} from 'firebase/firestore'
+import { collection, query, where, getDocs, deleteDoc} from 'firebase/firestore'
 import { db } from '../firebase'
 import kcLoadingSpinner from '../components/kcLoadingSpinner.vue'
 
@@ -73,8 +73,19 @@ export default {
   },
   methods: {
     deletePost: async function(uuid) {
-      const docRef = doc(db, 'Posts', uuid);
-      await deleteDoc(docRef);
+      const postsRef = collection(db, "Posts");
+    
+      // Maakt een query die zoekt naar documenten met de specifieke uuid
+      const q = query(postsRef, where("uuid", "==", uuid));
+      
+      // Voert de query uit en krijgt de querySnapshot
+      const querySnapshot = await getDocs(q);
+      
+      // Loopt door alle gevonden documenten heen
+      querySnapshot.forEach(async (doc) => {
+          // Verwijder het document
+          await deleteDoc(doc.ref);
+      });
     },
   },
   async created() {
