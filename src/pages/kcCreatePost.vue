@@ -34,31 +34,38 @@ export default {
   },
   methods: {
       createPost: async function() {
-      let title = document.querySelector('#post-title').value;
-      let text = document.querySelector('#post-text').value;
-      // let img = document.querySelector('#post-image').value;
-      let author = document.querySelector('#post-author').value;
-      let category = this.category;
+        let title = document.querySelector('#post-title').value;
+        let text = document.querySelector('#post-text').value;
+        // let img = document.querySelector('#post-image').value;
+        let author = document.querySelector('#post-author').value;
+        let category = this.category;
+        
+        if (title !== '' && text !== '' && author !== '' && category !== '') {
+          console.log('all fields filled')
+        } else {
+          console.log('not all fields filled')
+          return
+        }
 
-      const uuid41 = () => {
-        let d = '';
-        while (d.length < 32) d += Math.random().toString(16).substr(2);
-        const vr = ((parseInt(d.substr(16, 1), 16) & 0x3) | 0x8).toString(16);
-        return `${d.substr(0, 8)}-${d.substr(8, 4)}-4${d.substr(13, 3)}-${vr}${d.substr(17, 3)}-${d.substr(20, 12)}`;
-      };
-      const uuid = await uuid41();
+        const uuid41 = () => {
+          let d = '';
+          while (d.length < 32) d += Math.random().toString(16).substr(2);
+          const vr = ((parseInt(d.substr(16, 1), 16) & 0x3) | 0x8).toString(16);
+          return `${d.substr(0, 8)}-${d.substr(8, 4)}-4${d.substr(13, 3)}-${vr}${d.substr(17, 3)}-${d.substr(20, 12)}`;
+        };
+        const uuid = await uuid41();
 
-      this.users = await addDoc(collection(db, "Posts"),{
-        created: new Date(),
-        title: title,
-        text: text,
-        img: null,
-        author: author,
-        uuid: uuid,
-        category: category,
-      });
+        this.users = await addDoc(collection(db, "Posts"),{
+          created: new Date(),
+          title: title,
+          text: text,
+          img: null,
+          author: author,
+          uuid: uuid,
+          category: category,
+        });
 
-      window.location.href = '/';
+        window.location.href = '/';
 
     },
   },
