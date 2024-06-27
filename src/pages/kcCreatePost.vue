@@ -1,19 +1,21 @@
 <template> 
-    <div class="modal-container">
-        <strong>New Post</strong>
-        <input type="text" placeholder="Title" id="post-title">
-        <textarea placeholder="post content" id="post-text"></textarea>
+  <div class="modal-container">
+    <div class="input-container">
+      <strong>New Post</strong>
+        <input type="text" placeholder="Title" id="post-title" required>
+        <textarea placeholder="Post content" id="post-text" required></textarea>
         <input type="file" id="post-image">
-        <select id="exampleSelect" name="exampleSelect" v-model="category">
+        <select id="exampleSelect" name="exampleSelect" v-model="category" required>
           <option value="any">Any</option>
           <option value="bbc">BBC</option>
           <option value="wet_pussy">Wet pussy</option>
           <option value="bubblegum_pink">Bubblegum pink</option>
         </select>
-        <input type="text" placeholder="username" id="post-author">
-        <button @click="createPost()">Post</button>
+      <input type="text" placeholder="Username" id="post-author" required>
+      <button @click="createPost()">Post</button>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   import '../assets/createpost.css'

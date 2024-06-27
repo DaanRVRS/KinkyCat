@@ -2,9 +2,10 @@
     margin: 0;
     padding:0;
 }
+
 footer{
     width: 100vw;
-    height:60px;
+    height:80px;
     display: flex;
     flex-direction: row;
     background-color: black;
@@ -17,6 +18,7 @@ footer{
         margin-left:10px;
         width:70px;
     }
+
     .copyright{
         position: absolute;
         right:0;
@@ -24,6 +26,7 @@ footer{
         color:white;
         font-size:20px;
     }
+
     .info{
         width:25%;
         height:100%;
