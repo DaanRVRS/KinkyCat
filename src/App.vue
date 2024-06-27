@@ -7,5 +7,5 @@ import KcHeader from './components/kcHeader.vue'
 <template>
   <KcHeader v-if="$route.meta.hideHeader === false" />
   <RouterView/>
-  <KcFooter v-if="$route.meta.hideFooter === false" />
+  <KcFooter v-if="$route.meta.hideFooter === false" /> 
 </template>

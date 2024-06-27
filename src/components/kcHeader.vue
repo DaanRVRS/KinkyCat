@@ -21,6 +21,9 @@
           <li><RouterLink to="/privacy-policy">Privacy Policy</RouterLink></li>
         </ul>
       </nav>
+      <div class="username">
+        {{ user ? user.displayName : null }}
+      </div>
       <div class="user-container">
         <RouterLink to="/login">
           <i class="fa-solid fa-user fa-3x"></i>
@@ -64,6 +67,7 @@ export default {
   data() {
     return {
       sidebarToggled: false,
+      user:null,
     };
   },
   methods: {

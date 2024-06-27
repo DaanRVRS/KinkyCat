@@ -69,6 +69,7 @@ export default {
     return {
       state: false,
       users: null,
+      
     };
   },
   methods: {
@@ -93,7 +94,7 @@ export default {
         name: name,
         password: password,
         posts: 0,
-      });
+      }); 
 
     },
     signInWithGoogle: async function(){
@@ -101,8 +102,10 @@ export default {
         const provider = new GoogleAuthProvider();
         const result = await signInWithPopup(auth, provider);
         const user = result.user;
-        console.log(user);
+        console.log(user.displayName);
+        //gebruik user var hiervoor
         this.user = user; 
+        this.$emit('userLoggedIn', user);
         this.$router.push('/');
       }catch (error){
         console.log(error.message);
