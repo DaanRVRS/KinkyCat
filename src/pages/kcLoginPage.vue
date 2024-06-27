@@ -22,7 +22,7 @@
       </div>
       <div class="register">
       <button @click=" state = true">Creëer account</button>
-      <button id="googlebutton"  @click="signInWithGoogle"><img src="/google.png">Ga verder met Google </button>  
+      <button id="googlebutton"  @click="signInWithGoogle()"><img src="/google.png">Ga verder met Google </button>  
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
       </div>
       <div class="login">
       <button @click=" state = false">Login</button>
-      <button id="googlebutton"  @click="signInWithGoogle"><img src="/google.png">Ga verder met Google </button>
+      <button id="googlebutton"  @click="signInWithGoogle()"><img src="/google.png">Ga verder met Google </button>
       </div>
     </div>
   </div>

@@ -4,6 +4,10 @@
       <h2><strong>Latest posts</strong></h2>
       <div class="posts-container" v-if="previewablePosts !== undefined && previewablePosts.length >= 3">
         <div class="card" v-for="(post, index) in previewablePosts" :key="post.id">
+          <div class="card-options">
+            <i class="fas fa-pencil" @click="$router.push('/edit-post/' + post.uuid)"></i>
+            <i class="fas fa-trash" @click="deletePost(post.uuid)"></i>
+          </div>
           <div >
             <strong>
               {{ post.title ? post.title : 'No posts yet' }}
@@ -53,7 +57,7 @@
 <script>
 import '../assets/homepage.css'
 import { useCollection } from 'vuefire'
-import { collection } from 'firebase/firestore'
+import { collection, deleteDoc, doc} from 'firebase/firestore'
 import { db } from '../firebase'
 import kcLoadingSpinner from '../components/kcLoadingSpinner.vue'
 
@@ -68,6 +72,10 @@ export default {
     };
   },
   methods: {
+    deletePost: async function(uuid) {
+      const docRef = doc(db, 'Posts', uuid);
+      await deleteDoc(docRef);
+    },
   },
   async created() {
     this.posts = await useCollection(collection(db, 'Posts'))
@@ -77,7 +85,7 @@ export default {
 
     await delay(1000);
     this.previewablePosts = this.posts.slice(0, 5)
-    console.log(this.previewablePosts)
+    console.log(this.previewablePosts);
   }
 };
 </script>

@@ -1,14 +1,19 @@
 <template> 
     <div v-if="post !== null">
-        <input type="text" placeholder="titel" id="postTitle">
-        <textarea placeholder="text" id="postText"></textarea>
-        <select id="exampleSelect" name="exampleSelect" v-model="category">
-            <option value="any">Any</option>
-            <option value="bbc">BBC</option>
-            <option value="wet_pussy">Wet pussy</option>
-            <option value="bubblegum_pink">Bubblegum pink</option>
-        </select>
-        <button @click="updatePost()">UPDATE!</button>
+        <div class="modal-container">
+            <div class="input-container">
+                <strong>Edit post</strong>
+                <input type="text" placeholder="titel" id="postTitle">
+                <textarea placeholder="text" id="postText"></textarea>
+                <select id="exampleSelect" name="exampleSelect" v-model="category">
+                    <option value="any">Any</option>
+                    <option value="bbc">BBC</option>
+                    <option value="wet_pussy">Wet pussy</option>
+                    <option value="bubblegum_pink">Bubblegum pink</option>
+                </select>
+                <button @click="updatePost()">UPDATE!</button>
+            </div>
+        </div>
     </div>
     <div v-else>
         <kcLoadingSpinner />
