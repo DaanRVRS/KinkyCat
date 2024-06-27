@@ -58,6 +58,7 @@
     width: 100vw;
     height: 3px;
     position: relative;
+    margin-top: 30px;
 
     .horizontal-line {
         width: 70vw;

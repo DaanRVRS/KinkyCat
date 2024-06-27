@@ -206,12 +206,6 @@ header {
     color: white;
 }
 
-footer {
-    height: 300px;
-    width: 100vw;
-    background-color: black;
-}
-
 @keyframes spin {
     0% {
         transform: rotate(0deg);
